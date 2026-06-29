@@ -1,0 +1,73 @@
+/* ============================================================
+   STYLE.CSS — Main stylesheet entry point
+   Imports all partials and page-specific overrides
+   ============================================================ */
+
+@import url('variables.css');
+@import url('layout.css');
+@import url('components.css');
+
+/* ---- Page-Specific: Dashboard ---- */
+
+/* Subtle gradient accent on page header area */
+.page-header {
+  position: relative;
+}
+
+.page-header::after {
+  content: '';
+  position: absolute;
+  top: -32px;
+  left: -32px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--color-primary-light) 0%, transparent 70%);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus visible styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-hover);
+}
+
+/* Scrollbar styling */
+.sidebar__nav::-webkit-scrollbar,
+.activity-panel::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar__nav::-webkit-scrollbar-track,
+.activity-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar__nav::-webkit-scrollbar-thumb,
+.activity-panel::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+/* Table horizontal scroll on small screens */
+@media (max-width: 768px) {
+  .table-card {
+    overflow-x: auto;
+  }
+
+  .data-table {
+    min-width: 560px;
+  }
+}

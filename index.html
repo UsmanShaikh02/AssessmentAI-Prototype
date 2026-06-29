@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AssessmentAI — AI-powered assessment platform for schools">
+  <title>Assessment Dashboard | AssessmentAI</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       APP SHELL
+       ============================================================ -->
+  <div class="app">
+
+    <!-- Sidebar Overlay (mobile) -->
+    <div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+
+    <!-- ---- Sidebar Navigation ---- -->
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+
+      <!-- Logo -->
+      <div class="sidebar__logo">
+        <div class="sidebar__logo-icon" aria-hidden="true">AI</div>
+        <span class="sidebar__logo-text">AssessmentAI</span>
+      </div>
+
+      <!-- Menu Items -->
+      <nav class="sidebar__nav">
+        <ul class="sidebar__menu">
+
+          <li>
+            <a href="#" class="sidebar__item sidebar__item--active" aria-current="page">
+              <svg class="sidebar__item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+              </svg>
+              Dashboard
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="sidebar__item">
+              <svg class="sidebar__item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+              Question Bank
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="sidebar__item">
+              <svg class="sidebar__item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+              </svg>
+              AI Generator
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="sidebar__item">
+              <svg class="sidebar__item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+              Paper Builder
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="sidebar__item">
+              <svg class="sidebar__item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
+              </svg>
+              Templates
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="sidebar__item">
+              <svg class="sidebar__item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+              History
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="sidebar__item">
+              <svg class="sidebar__item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+              </svg>
+              Analytics
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="sidebar__item">
+              <svg class="sidebar__item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+              Settings
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar__footer">
+        <p class="sidebar__footer-text">AssessmentAI v0.1 Prototype</p>
+      </div>
+
+    </aside>
+
+    <!-- ---- Main Wrapper ---- -->
+    <div class="main-wrapper">
+
+      <!-- Top Navigation -->
+      <header class="topnav" role="banner">
+
+        <div class="topnav__left">
+          <button class="topnav__menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </button>
+          <span class="topnav__school">Assessment Workspace</span>
+        </div>
+
+        <div class="topnav__search" role="search">
+          <svg class="topnav__search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input
+            type="search"
+            class="topnav__search-input"
+            placeholder="Search questions, papers, templates..."
+            aria-label="Search questions, papers, and templates"
+          >
+        </div>
+
+        <div class="topnav__right">
+          <button class="topnav__icon-btn" aria-label="Notifications">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+            <span class="topnav__notification-dot" aria-hidden="true"></span>
+          </button>
+          <div class="topnav__profile" role="img" aria-label="Sarah Mitchell, Science Teacher">
+            <div class="topnav__avatar" aria-hidden="true">SM</div>
+            <div class="topnav__profile-info">
+              <span class="topnav__profile-name">Sarah Mitchell</span>
+              <span class="topnav__profile-role">Science Teacher</span>
+            </div>
+          </div>
+        </div>
+
+      </header>
+
+      <!-- Main Content -->
+      <main class="main-content" role="main">
+
+        <!-- Page Header -->
+        <header class="page-header">
+          <h1 class="page-header__title">Assessment Dashboard</h1>
+          <p class="page-header__subtitle">Create, manage and review assessments from one intelligent workspace.</p>
+        </header>
+
+        <!-- Statistic Cards -->
+        <section class="dashboard-section" aria-label="Statistics overview">
+          <div class="dashboard-grid dashboard-grid--stats">
+
+            <article class="stat-card">
+              <div class="stat-card__header">
+                <div class="stat-card__icon stat-card__icon--blue" aria-hidden="true">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+                  </svg>
+                </div>
+                <span class="stat-card__trend stat-card__trend--up">+6%</span>
+              </div>
+              <p class="stat-card__value">52</p>
+              <p class="stat-card__label">Assessments</p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-card__header">
+                <div class="stat-card__icon stat-card__icon--purple" aria-hidden="true">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                  </svg>
+                </div>
+                <span class="stat-card__trend stat-card__trend--up">+5%</span>
+              </div>
+              <p class="stat-card__value">1,284</p>
+              <p class="stat-card__label">Question Bank</p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-card__header">
+                <div class="stat-card__icon stat-card__icon--green" aria-hidden="true">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
+                  </svg>
+                </div>
+                <span class="stat-card__trend stat-card__trend--up">+3 new</span>
+              </div>
+              <p class="stat-card__value">24</p>
+              <p class="stat-card__label">Templates</p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-card__header">
+                <div class="stat-card__icon stat-card__icon--gray" aria-hidden="true">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/>
+                  </svg>
+                </div>
+                <span class="stat-card__trend stat-card__trend--neutral">2 due today</span>
+              </div>
+              <p class="stat-card__value">5</p>
+              <p class="stat-card__label">Pending Reviews</p>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="dashboard-section" aria-label="Quick actions">
+          <h2 class="dashboard-section__title">Quick Actions</h2>
+          <div class="quick-actions">
+
+            <button class="quick-action" type="button">
+              <div class="quick-action__icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+              </div>
+              <span class="quick-action__label">New Assessment</span>
+            </button>
+
+            <button class="quick-action" type="button">
+              <div class="quick-action__icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <span class="quick-action__label">Generate Questions</span>
+            </button>
+
+            <button class="quick-action" type="button">
+              <div class="quick-action__icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+              </div>
+              <span class="quick-action__label">Import Previous Paper</span>
+            </button>
+
+            <button class="quick-action" type="button">
+              <div class="quick-action__icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+              </div>
+              <span class="quick-action__label">Question Bank</span>
+            </button>
+
+          </div>
+        </section>
+
+        <!-- Today's Tasks -->
+        <section class="dashboard-section" aria-label="Today's tasks">
+          <h2 class="dashboard-section__title">Today's Tasks</h2>
+          <div class="dashboard-grid dashboard-grid--tasks">
+
+            <article class="task-card">
+              <h3 class="task-card__title">Review Grade 8 Mathematics Midterm</h3>
+              <div class="task-card__meta">
+                <span class="badge badge--pending">Approval Pending</span>
+                <span class="task-card__subject">Mathematics</span>
+                <span class="task-card__due">Due Today</span>
+              </div>
+              <div class="task-card__footer">
+                <button class="btn btn--sm btn--outline" type="button">Continue</button>
+              </div>
+            </article>
+
+            <article class="task-card">
+              <h3 class="task-card__title">Generate Science Quiz</h3>
+              <div class="task-card__meta">
+                <span class="badge badge--generated">In Progress</span>
+                <span class="task-card__subject">Science</span>
+                <span class="task-card__due">Due Today</span>
+              </div>
+              <div class="task-card__footer">
+                <button class="btn btn--sm btn--outline" type="button">Continue</button>
+              </div>
+            </article>
+
+            <article class="task-card">
+              <h3 class="task-card__title">Continue English Assessment</h3>
+              <div class="task-card__meta">
+                <span class="badge badge--draft">Draft</span>
+                <span class="task-card__subject">English</span>
+                <span class="task-card__due">Due Today</span>
+              </div>
+              <div class="task-card__footer">
+                <button class="btn btn--sm btn--outline" type="button">Continue</button>
+              </div>
+            </article>
+
+            <article class="task-card">
+              <h3 class="task-card__title">Approve History Unit Test</h3>
+              <div class="task-card__meta">
+                <span class="badge badge--review">Review Required</span>
+                <span class="task-card__subject">History</span>
+                <span class="task-card__due">Due Today</span>
+              </div>
+              <div class="task-card__footer">
+                <button class="btn btn--sm btn--outline" type="button">Continue</button>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Empty State: Today's Tasks (hidden) -->
+          <div class="empty-state empty-state--hidden" aria-hidden="true">
+            <div class="empty-state__icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+              </svg>
+            </div>
+            <h3 class="empty-state__title">No tasks for today</h3>
+            <p class="empty-state__text">You're all caught up. Create a new assessment or check back later.</p>
+          </div>
+        </section>
+
+        <!-- Continue Working -->
+        <section class="dashboard-section" aria-label="Continue working">
+          <h2 class="dashboard-section__title">Continue Working</h2>
+
+          <article class="continue-card">
+            <div class="continue-card__content">
+              <p class="continue-card__label">Pick up where you left off</p>
+              <h3 class="continue-card__title">Mid-Term Mathematics</h3>
+              <div class="continue-card__progress">
+                <div class="continue-card__progress-bar" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" aria-label="Assessment progress">
+                  <div class="continue-card__progress-fill" style="width: 68%;"></div>
+                </div>
+                <span class="continue-card__progress-text">68% Complete</span>
+              </div>
+              <p class="continue-card__edited">Last edited 25 minutes ago</p>
+            </div>
+            <div class="continue-card__action">
+              <button class="btn btn--primary" type="button">Continue Editing</button>
+            </div>
+          </article>
+
+          <!-- Empty State: Continue Working (hidden) -->
+          <div class="empty-state empty-state--hidden" aria-hidden="true">
+            <div class="empty-state__icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+              </svg>
+            </div>
+            <h3 class="empty-state__title">No assessments in progress</h3>
+            <p class="empty-state__text">Start a new assessment or import a previous paper to begin.</p>
+          </div>
+        </section>
+
+        <!-- Main Grid: Table + AI Activity Panel -->
+        <div class="dashboard-grid dashboard-grid--main">
+
+          <!-- Recent Assessments Table -->
+          <section class="dashboard-section" aria-label="Recent assessments" style="margin-bottom: 0;">
+            <div class="table-card">
+              <div class="table-card__header">
+                <h2 class="table-card__title">Recent Assessments</h2>
+                <a href="#" class="table-card__link">View all</a>
+              </div>
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Assessment</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col" class="hide-mobile">Grade</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="hide-mobile">Progress</th>
+                    <th scope="col" class="hide-mobile">Created</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="data-table__name">Mid-Term Mathematics</div>
+                      <div class="data-table__meta">25 questions · 60 min</div>
+                    </td>
+                    <td>Mathematics</td>
+                    <td class="hide-mobile">Grade 8</td>
+                    <td><span class="badge badge--published">Published</span></td>
+                    <td class="hide-mobile"><span class="badge badge--completed">Completed</span></td>
+                    <td class="hide-mobile">Jun 28, 2026</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="data-table__name">Science Unit 4 Quiz</div>
+                      <div class="data-table__meta">15 questions · 30 min</div>
+                    </td>
+                    <td>Science</td>
+                    <td class="hide-mobile">Grade 7</td>
+                    <td><span class="badge badge--draft">Draft</span></td>
+                    <td class="hide-mobile"><span class="badge badge--draft">Draft</span></td>
+                    <td class="hide-mobile">Jun 27, 2026</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="data-table__name">English Literature Essay</div>
+                      <div class="data-table__meta">5 questions · 90 min</div>
+                    </td>
+                    <td>English</td>
+                    <td class="hide-mobile">Grade 9</td>
+                    <td><span class="badge badge--review">In Review</span></td>
+                    <td class="hide-mobile"><span class="badge badge--review">Review</span></td>
+                    <td class="hide-mobile">Jun 26, 2026</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="data-table__name">History — World War II</div>
+                      <div class="data-table__meta">20 questions · 45 min</div>
+                    </td>
+                    <td>History</td>
+                    <td class="hide-mobile">Grade 10</td>
+                    <td><span class="badge badge--published">Published</span></td>
+                    <td class="hide-mobile"><span class="badge badge--published">Published</span></td>
+                    <td class="hide-mobile">Jun 25, 2026</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="data-table__name">Geography Map Skills</div>
+                      <div class="data-table__meta">18 questions · 40 min</div>
+                    </td>
+                    <td>Geography</td>
+                    <td class="hide-mobile">Grade 6</td>
+                    <td><span class="badge badge--generated">AI Generated</span></td>
+                    <td class="hide-mobile"><span class="badge badge--completed">Completed</span></td>
+                    <td class="hide-mobile">Jun 24, 2026</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- Empty State: Recent Assessments (hidden) -->
+              <div class="empty-state empty-state--hidden" aria-hidden="true">
+                <div class="empty-state__icon" aria-hidden="true">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+                  </svg>
+                </div>
+                <h3 class="empty-state__title">No assessments yet</h3>
+                <p class="empty-state__text">Create your first assessment to see it listed here.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- AI Activity Panel -->
+          <aside class="activity-panel" aria-label="AI activity">
+
+            <div class="activity-panel__header">
+              <div class="activity-panel__header-icon" aria-hidden="true">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="activity-panel__title">AI Activity</h2>
+                <p class="activity-panel__subtitle">AI-powered workflow updates</p>
+              </div>
+            </div>
+
+            <div class="activity-panel__section">
+              <ul class="activity-list">
+                <li class="activity-item">
+                  <span class="activity-item__dot activity-item__dot--blue" aria-hidden="true"></span>
+                  <div class="activity-item__content">
+                    <p class="activity-item__text">AI generated 18 Mathematics questions</p>
+                    <p class="activity-item__meta">2 minutes ago</p>
+                  </div>
+                </li>
+                <li class="activity-item">
+                  <span class="activity-item__dot activity-item__dot--purple" aria-hidden="true"></span>
+                  <div class="activity-item__content">
+                    <p class="activity-item__text">AI improved grammar</p>
+                    <p class="activity-item__detail">Science Quiz</p>
+                    <p class="activity-item__meta">10 minutes ago</p>
+                  </div>
+                </li>
+                <li class="activity-item">
+                  <span class="activity-item__dot activity-item__dot--green" aria-hidden="true"></span>
+                  <div class="activity-item__content">
+                    <p class="activity-item__text">AI completed assessment review</p>
+                    <p class="activity-item__detail">Difficulty Score 89%</p>
+                    <p class="activity-item__meta">15 minutes ago</p>
+                  </div>
+                </li>
+                <li class="activity-item">
+                  <span class="activity-item__dot activity-item__dot--blue" aria-hidden="true"></span>
+                  <div class="activity-item__content">
+                    <p class="activity-item__text">AI detected duplicate question</p>
+                    <p class="activity-item__detail">English Paper</p>
+                    <p class="activity-item__meta">30 minutes ago</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Empty State: AI Activity (hidden) -->
+            <div class="activity-panel__section empty-state empty-state--hidden" aria-hidden="true">
+              <div class="empty-state__icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/>
+                </svg>
+              </div>
+              <h3 class="empty-state__title">No AI activity yet</h3>
+              <p class="empty-state__text">AI actions will appear here as you generate questions and build assessments.</p>
+            </div>
+
+          </aside>
+
+        </div>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
